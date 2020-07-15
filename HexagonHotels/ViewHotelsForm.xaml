@@ -1,0 +1,186 @@
+﻿<Window x:Class="HexagonHotels.ViewHotelsForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HexagonHotels"
+        mc:Ignorable="d"
+        Title="Hexagon Hotels - View Hotels" Height="400" Width="1400" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True" Icon="MediaSources/HH_Icon.ico">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF3A3A3A" Offset="0"/>
+            <GradientStop Color="Silver" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid Name="SouthOverlay" Margin="18,14,984,135" MouseDown="Overlay_MouseDown"  >
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True" >
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="0" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="1"  Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Image  Panel.ZIndex="2" Source="MediaSources\SouthHotel.jpg"/>
+            <TextBlock Panel.ZIndex="3" FontSize="40" Text="Hexagon Hotel South" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" TextWrapping="Wrap">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+
+            </TextBlock>
+            
+            <!--<Label Panel.ZIndex="2" Content="Eyyy LMAO" Foreground="White"/>-->
+        </Grid>
+        <Grid Name="SouthUnderlay" Margin="18,14,984,135" Panel.ZIndex="-1">
+            <MediaElement Name="Hotel1Media" Panel.ZIndex="-1" Source="MediaSources\SouthVideo.wmv" Visibility="Visible" Opacity="1" LoadedBehavior="Play">
+                <MediaElement.Triggers>
+                    <EventTrigger RoutedEvent="MediaElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MediaTimeline Source="MediaSources\SouthVideo.wmv" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MediaElement.Triggers>
+            </MediaElement>
+            <TextBlock Panel.ZIndex="3"  FontSize="15" Text="Luxury hotel in the south of England, located just a 5 minute walk from the sea. Come see the beaituful views and enjoy our relaxing rooms" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+
+
+        <Grid Name="NorthOverlay" Margin="980,14,22,135" MouseDown="Overlay_MouseDown"  >
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True" >
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="0" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="1"  Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Image Panel.ZIndex="2" Source="MediaSources\NorthHotel.jpg"/>
+            <TextBlock Panel.ZIndex="3" FontSize="40" Text="Hexagon Hotel North" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" TextWrapping="Wrap">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+
+            </TextBlock>
+
+            <!--<Label Panel.ZIndex="2" Content="Eyyy LMAO" Foreground="White"/>-->
+        </Grid>
+        <Grid Name="NorthUnderlay"  Margin="980,14,22,135" Panel.ZIndex="-1">
+            <MediaElement  Panel.ZIndex="-1" Source="MediaSources\NorthVideo.wmv" Visibility="Visible" Opacity="1" LoadedBehavior="Play">
+                <MediaElement.Triggers>
+                    <EventTrigger RoutedEvent="MediaElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MediaTimeline Source="MediaSources\NorthVideo.wmv" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MediaElement.Triggers>
+            </MediaElement>
+            <TextBlock Panel.ZIndex="3"  FontSize="15" Text="Luxury hotel in the north of England, located in a prime, centre of city location - perfect for those up for excitement" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+
+
+
+
+        <Grid Name="EastOverlay" Margin="488,14,514,135" MouseDown="Overlay_MouseDown"  >
+            <Grid.Style>
+                <Style TargetType="Grid">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True" >
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="0" Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation  Duration="0:0:0.5" To="1"  Storyboard.TargetProperty="Opacity" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+            <Image Panel.ZIndex="2" Source="MediaSources\EastHotel.jpg"/>
+            <TextBlock Panel.ZIndex="3" FontSize="40" Text="Hexagon Hotel East" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial" TextWrapping="Wrap">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+
+            </TextBlock>
+
+            <!--<Label Panel.ZIndex="2" Content="Eyyy LMAO" Foreground="White"/>-->
+        </Grid>
+        <Grid Name="EastUnderlay" Margin="488,14,514,135" Panel.ZIndex="-1">
+            <MediaElement  Panel.ZIndex="-1" Source="MediaSources\EastVideo.wmv" Visibility="Visible" Opacity="1" LoadedBehavior="Play">
+                <MediaElement.Triggers>
+                    <EventTrigger RoutedEvent="MediaElement.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <MediaTimeline Source="MediaSources\EastVideo.wmv" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MediaElement.Triggers>
+            </MediaElement>
+            <TextBlock Panel.ZIndex="3"  FontSize="15" Text="Luxury hotel in the east of England, in a quiet town, perfect for a calm weekend" TextWrapping="Wrap" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontFamily="Arial">
+                <TextBlock.Effect>
+                    <DropShadowEffect Direction="299" RenderingBias="Quality" BlurRadius="20"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+        <Label x:Name="HotelInfoLabel" Content="Select from our range of hotels, find the perfect room for you." HorizontalAlignment="Left" Margin="434,261,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="HotelInfoLabel_Copy" Content="Each of our hotels offer a wide variety of room types to suit any needs. These range from business, travelling, luxury and even economy" HorizontalAlignment="Left" Margin="184,289,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="HotelInfoLabel_Copy1" Content="Additionally all guests are free to use our range of facilities such as the gym, indoor and outdoor pools, spa and much more!" HorizontalAlignment="Left" Margin="240,317,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+    </Grid>
+    
+</Window>
